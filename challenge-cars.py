@@ -75,9 +75,9 @@ for make in makes:
 
 # print("car report 1")
 # print(report_dict)
-report_dict2 = {make[1]: {model[1]: [color[1] for color in colors for c in available_car_colors if c[1] == color[0] and c[0] == model[0]]} for make in makes for model in models if model[2] == make[0]}
-# print("car report 2")
-# print(report_dict2)
+report_dict2 = {make[1]: {model[1]: [color[1] for color in colors for c in available_car_colors if c[1] == color[0] and c[0] == model[0]] for model in models if model[2] == make[0]} for make in makes}
+print("car report 2")
+print(report_dict2)
 
 # You must first build a new dictionary that follows the format below. 
 
@@ -115,9 +115,17 @@ report_dict2 = {make[1]: {model[1]: [color[1] for color in colors for c in avail
 # }
 
 ### Part II - Command Line Report
+print('Final Report 1')
 for make_name in report_dict:
     print('{0}\n--------------------'.format(make_name))
     for model_name in report_dict[make_name]:
+        print('{0} available in: {1}, {2}, and {3}'.format(model_name, report_dict[make_name][model_name][0], report_dict[make_name][model_name][1], report_dict[make_name][model_name][2]))
+    print('')
+
+print('Final Report 2')
+for make_name in report_dict2:
+    print('{0}\n--------------------'.format(make_name))
+    for model_name in report_dict2[make_name]:
         print('{0} available in: {1}, {2}, and {3}'.format(model_name, report_dict[make_name][model_name][0], report_dict[make_name][model_name][1], report_dict[make_name][model_name][2]))
     print('')
 
