@@ -77,3 +77,42 @@ Read the [Test Discovery section](https://docs.python.org/3.3/library/unittest.h
 ## Calculator Unit Tests
 
 Just like you did in JavaScript when you learned about Jasmine, you're going to create a class that test the functionality of a Calculator class.
+
+
+## Advanced Challenge: Matching Makes & Models
+
+### Overview
+
+This is an advanced challenge because it requires multiple layers of iteration. It is also an introduction to database relationships because there are four unique collections that are all related to each other.
+
+In the `makes` and `colors` collections, each item has a numeric identifier, and then a string representation.
+
+In the `models` collection, each item also has a numeric identifier, but also stores the numeric identifier of a model
+
+Finally, the `available_car_colors` collection is storing the relationships between items in two foreign collections. The first number represents the corresponding model, and the second number represents the corresponding color.
+
+### Instructions
+
+#### Part I: Reporting Object
+
+You must first build a new dictionary that follows the format below. 
+
+1. Each key in the dictionary should be the name of a make, and its value will be a dictionary.
+1. The keys in the make dictionary will be the models, and the value will be a list of colors in which that the model is available.
+
+#### Part II - Command Line Report
+
+Output a report on the command line that looks like this.
+
+```
+Ford
+------------------
+F150 available in Black, Blue, Ivory
+Thunderbird available in Black, Red, White
+
+etc...
+```
+
+# Black Hat Hacker Challenge
+
+Rewrite your nested `for` loops as nested comprehensions.
