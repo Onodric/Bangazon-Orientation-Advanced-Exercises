@@ -1,3 +1,5 @@
+#--------|---------|---------|---------|---------|---------|---------|---------
+
 # The Family Dictionary
 
 # 1. Define a dictionary that contains information about several members of your family. Use the following example as a template.
