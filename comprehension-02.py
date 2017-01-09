@@ -1,3 +1,4 @@
+#--------|---------|---------|---------|---------|---------|---------|---------
 # Kill Nickelback
 
 # In this exercises, you're going to use a conditional statement inside a comprehension. Let's look at a basic example.

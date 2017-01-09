@@ -1,3 +1,4 @@
+#--------|---------|---------|---------|---------|---------|---------|---------
 # Advanced Challenge: Matching Makes & Models
 
 # make_id, make_name
@@ -75,9 +76,15 @@ for make in makes:
 
 # print("car report 1")
 # print(report_dict)
-report_dict2 = {make[1]: {model[1]: [color[1] for color in colors for c in available_car_colors if c[1] == color[0] and c[0] == model[0]] for model in models if model[2] == make[0]} for make in makes}
-print("car report 2")
-print(report_dict2)
+report_dict2 = {make[1]: {
+    model[1]: [
+        color[1] for color in colors
+        for c in available_car_colors if c[1] == color[0] and c[0] == model[0]
+    ] for model in models if model[2] == make[0]
+} for make in makes}
+
+# print("car report 2")
+# print(report_dict2)
 
 # You must first build a new dictionary that follows the format below. 
 
@@ -115,18 +122,20 @@ print(report_dict2)
 # }
 
 ### Part II - Command Line Report
-print('Final Report 1')
-for make_name in report_dict:
-    print('{0}\n--------------------'.format(make_name))
-    for model_name in report_dict[make_name]:
-        print('{0} available in: {1}, {2}, and {3}'.format(model_name, report_dict[make_name][model_name][0], report_dict[make_name][model_name][1], report_dict[make_name][model_name][2]))
-    print('')
+# print('Final Report 1 -- Using For loops')
+# for make_name, model in report_dict.items():
+#     print('{0}\n--------------------'.format(make_name))
+#     for model_name, colors in model.items():
+#         print('{0} available in: {1}, {2}, and {3}'.format(
+#           model_name, colors[0], colors[1], colors[2]))
+#     print('')
 
-print('Final Report 2')
-for make_name in report_dict2:
+print('Final Report 2 -- Using Comprehension')
+for make_name, model in report_dict2.items():
     print('{0}\n--------------------'.format(make_name))
-    for model_name in report_dict2[make_name]:
-        print('{0} available in: {1}, {2}, and {3}'.format(model_name, report_dict[make_name][model_name][0], report_dict[make_name][model_name][1], report_dict[make_name][model_name][2]))
+    for model_name, colors in model.items():
+        print('{0} available in: {1}, {2}, and {3}'.format(
+          model_name, colors[0], colors[1], colors[2]))
     print('')
 
 # Output a report on the command line that looks like this.
@@ -141,3 +150,8 @@ for make_name in report_dict2:
 # Black Hat Hacker Challenge
 
 # Rewrite your nested `for` loops as nested comprehensions.
+
+[print('\n' + make_name + '\n-----------------------------\n' + "{0} available in {1}, {2}, and {3}".format(model, *model_name[model]) for model in model_name for make_name, model_name in report_dict2.items())]
+  # print('\n' + k + '\n-----------------------------')
+  # for model in v:
+    # print("{0} available in {1}".format(model, ', '.join(v[model])))
